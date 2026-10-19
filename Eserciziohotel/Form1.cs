@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using System.Windows.Forms;
 
 namespace Eserciziohotel
@@ -15,53 +9,107 @@ namespace Eserciziohotel
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-          
-
-            
 
         }
 
         private void btn_n1_Click(object sender, EventArgs e)
         {
-            string stanza, stagione;
-            int prezzo , giorni = int.Parse(txt_n1.Text);
+
+            string stanza = cmb_n1.Text;
+            string stagione = cmb_n2.Text;
+            int giorni = Convert.ToInt32(txt_n1.Text);
+            bool Parcheggio = chk_n1.Checked;
 
 
-            if (cmb_n1.SelectedItem == "Base(B)")
+            double tariffaGiornaliera = 0;
+            double sconto1 = 0.75;
+            double sconto2 = 0.65;
+
+            if (stanza == "Base (B)")
             {
-                if (cmb_n3.SelectedItem == "Bassa Stagione (BS)")
+                if (stagione == "Bassa Stagione (BS)")
                 {
-                  if (giorni <= 2)
-                  {                        
-                       if (giorni == 2)
-                       {
-                           prezzo = 15 * 2;
-                       }
-                       else
-                       {
-                           prezzo = 15;
-                       }                      
-                  }
-                    else if (giorni > 2 && giorni < 7)
-                    {
-                        if (giorni == 2)
-                        {
-                            prezzo = 15 * 2;
-                        }
-                        else
-                        {
-                            prezzo = 15;
-                        }
-                    }
-                    MessageBox.Show(prezzo.ToString());
-
+                    tariffaGiornaliera = 15;
+                }
+                else if (stagione == "Media Stagione (MS)")
+                {
+                    tariffaGiornaliera = 20;
+                }
+                else if (stagione == "Alta Stagione (AS)")
+                {
+                    tariffaGiornaliera = 25;
                 }
             }
-           
+            else if (stanza == "Media (M)")
+            {
+                if (stagione == "Bassa Stagione (BS)")
+                {
+                    tariffaGiornaliera = 30;
+                }
+                else if (stagione == "Media Stagione (MS)")
+                {
+                    tariffaGiornaliera = 35;
+                }
+                else if (stagione == "Alta Stagione (AS)")
+                {
+                    tariffaGiornaliera = 40;
+                }
+            }
+            else if (stanza == "Alta (A)")
+            {
+                if (stagione == "Bassa Stagione (BS)")
+                {
+                    tariffaGiornaliera = 45;
+                }
+                else if (stagione == "Media Stagione (MS)")
+                {
+                    tariffaGiornaliera = 50;
+                }
+                else if (stagione == "Alta Stagione (AS)")
+                {
+                    tariffaGiornaliera = 55;
+                }
+            }
+
+            double costoStanza = 0;
+            if (giorni <= 2)
+            {
+
+                costoStanza = giorni * tariffaGiornaliera;
+            }
+            else if (giorni <= 7)
+            {
+
+                double primi2Giorni = 2 * tariffaGiornaliera;
+                double giorniRimanenti = (giorni - 2) * (tariffaGiornaliera * sconto1);
+                costoStanza = primi2Giorni + giorniRimanenti;
+            }
+            else
+            {
+
+                double primi2Giorni = 2 * tariffaGiornaliera;
+                double successivi5Giorni = 5 * (tariffaGiornaliera * sconto1);
+                double oltre7Giorni = (giorni - 7) * (tariffaGiornaliera * sconto2);
+                costoStanza = primi2Giorni + successivi5Giorni + oltre7Giorni;
+            }
+
+
+            double costoParcheggio = 0;
+            if (Parcheggio)
+            {
+                costoParcheggio = giorni * 5;
+            }
+
+
+            double totale = costoStanza + costoParcheggio;
+
+            MessageBox.Show("Costo totale del soggiorno: " + totale + " €");
+            MessageBox.Show("Grazie per aver utilizzato il nostro servizio di prenotazione! Speriamo di rivederti presto.");
+        }
+
+        private void btn_n2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("");
         }
     }
 }

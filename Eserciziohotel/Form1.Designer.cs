@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btn_n1 = new System.Windows.Forms.Button();
             this.cmb_n1 = new System.Windows.Forms.ComboBox();
@@ -37,9 +38,11 @@
             this.lbl_n4 = new System.Windows.Forms.Label();
             this.pct_n1 = new System.Windows.Forms.PictureBox();
             this.chk_n1 = new System.Windows.Forms.CheckBox();
-            this.cmb_n3 = new System.Windows.Forms.ComboBox();
+            this.cmb_n2 = new System.Windows.Forms.ComboBox();
             this.lbl_n5 = new System.Windows.Forms.Label();
             this.txt_n1 = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.btn_n2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pct_n1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -126,18 +129,18 @@
             this.chk_n1.Text = "Parcheggio";
             this.chk_n1.UseVisualStyleBackColor = true;
             // 
-            // cmb_n3
+            // cmb_n2
             // 
-            this.cmb_n3.FormattingEnabled = true;
-            this.cmb_n3.Items.AddRange(new object[] {
+            this.cmb_n2.FormattingEnabled = true;
+            this.cmb_n2.Items.AddRange(new object[] {
             "Bassa Stagione (BS)",
             "Media Stagione (MS)",
             "Alta Stagione (AS)"});
-            this.cmb_n3.Location = new System.Drawing.Point(39, 183);
-            this.cmb_n3.Name = "cmb_n3";
-            this.cmb_n3.Size = new System.Drawing.Size(110, 21);
-            this.cmb_n3.TabIndex = 9;
-            this.cmb_n3.Text = "Stagione:";
+            this.cmb_n2.Location = new System.Drawing.Point(39, 183);
+            this.cmb_n2.Name = "cmb_n2";
+            this.cmb_n2.Size = new System.Drawing.Size(110, 21);
+            this.cmb_n2.TabIndex = 9;
+            this.cmb_n2.Text = "Stagione:";
             // 
             // lbl_n5
             // 
@@ -155,14 +158,30 @@
             this.txt_n1.Size = new System.Drawing.Size(110, 20);
             this.txt_n1.TabIndex = 11;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // btn_n2
+            // 
+            this.btn_n2.Location = new System.Drawing.Point(659, 399);
+            this.btn_n2.Name = "btn_n2";
+            this.btn_n2.Size = new System.Drawing.Size(129, 39);
+            this.btn_n2.TabIndex = 13;
+            this.btn_n2.Text = "COME FUNZIONA IL MIO PROGRAMMA?";
+            this.btn_n2.UseVisualStyleBackColor = true;
+           
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_n2);
             this.Controls.Add(this.txt_n1);
             this.Controls.Add(this.lbl_n5);
-            this.Controls.Add(this.cmb_n3);
+            this.Controls.Add(this.cmb_n2);
             this.Controls.Add(this.chk_n1);
             this.Controls.Add(this.pct_n1);
             this.Controls.Add(this.lbl_n4);
@@ -173,7 +192,6 @@
             this.Controls.Add(this.btn_n1);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pct_n1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -190,9 +208,11 @@
         private System.Windows.Forms.Label lbl_n4;
         private System.Windows.Forms.PictureBox pct_n1;
         private System.Windows.Forms.CheckBox chk_n1;
-        private System.Windows.Forms.ComboBox cmb_n3;
+        private System.Windows.Forms.ComboBox cmb_n2;
         private System.Windows.Forms.Label lbl_n5;
         private System.Windows.Forms.TextBox txt_n1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Button btn_n2;
     }
 }
 
