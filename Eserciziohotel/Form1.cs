@@ -14,7 +14,21 @@ namespace Eserciziohotel
 
         private void btn_n1_Click(object sender, EventArgs e)
         {
-
+            if (txt_n1.Text == "")
+            {
+                MessageBox.Show("Inserisci i giorni di soggiorno e riprova!");
+                return;
+            }
+            if (cmb_n1.SelectedIndex == -1)
+            {
+                MessageBox.Show("Inserisci il tipo di stanza e riprova!");
+                return;
+            }
+            if (cmb_n2.SelectedIndex == -1)
+            {
+                MessageBox.Show("Inserisci la stagione e riprova!");
+                return;
+            }
             string stanza = cmb_n1.Text;
             string stagione = cmb_n2.Text;
             int giorni = Convert.ToInt32(txt_n1.Text);
@@ -24,6 +38,12 @@ namespace Eserciziohotel
             double tariffaGiornaliera = 0;
             double sconto1 = 0.75;
             double sconto2 = 0.65;
+            if (!int.TryParse(txt_n1.Text, out giorni) || giorni <= 0)
+            {
+                MessageBox.Show("Inserisci un numero di giorni valido (maggiore di 0).", "Input non valido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+           
 
             if (stanza == "Base (B)")
             {
@@ -105,11 +125,29 @@ namespace Eserciziohotel
 
             MessageBox.Show("Costo totale del soggiorno: " + totale + " €");
             MessageBox.Show("Grazie per aver utilizzato il nostro servizio di prenotazione! Speriamo di rivederti presto.");
+            Application.Exit(); 
         }
 
         private void btn_n2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("");
+            MessageBox.Show(
+                "--- BENVENUTO NEL SISTEMA DI PRENOTAZIONE ---\n\n" +
+        "Come viene calcolato il prezzo:\n\n" +
+        "1. TARIFFA BASE (al giorno):\n" +
+        "   - Stanza Base: 15€ (Bassa), 20€ (Media), 25€ (Alta)\n" +
+        "   - Stanza Media: 30€ (Bassa), 35€ (Media), 40€ (Alta)\n" +
+        "   - Stanza Alta: 45€ (Bassa), 50€ (Media), 55€ (Alta)\n\n" +
+        "2. SCONTI SULLA PERMANENZA:\n" +
+        "   - Primi 2 giorni: Prezzo pieno\n" +
+        "   - Dal 3° al 7° giorno: Sconto del 25%\n" +
+        "   - Dall'8° giorno in poi: Sconto del 35%\n\n" +
+        "3. SERVIZI AGGIUNTIVI:\n" +
+        "   - Parcheggio: +5€ al giorno (se selezionato)\n\n" +
+                "Compila i campi e clicca su PRENOTA per vedere il preventivo!",
+                "Informazioni",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+            );
         }
     }
 }

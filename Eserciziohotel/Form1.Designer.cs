@@ -171,7 +171,7 @@
             this.btn_n2.TabIndex = 13;
             this.btn_n2.Text = "COME FUNZIONA IL MIO PROGRAMMA?";
             this.btn_n2.UseVisualStyleBackColor = true;
-           
+            this.btn_n2.Click += new System.EventHandler(this.btn_n2_Click);
             // 
             // Form1
             // 
